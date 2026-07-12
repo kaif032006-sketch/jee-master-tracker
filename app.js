@@ -157,3 +157,52 @@ themeBtn.addEventListener("click",()=>{
     }
 
 });
+// ==========================
+// POMODORO TIMER
+// ==========================
+
+let time = 25 * 60;
+let timerInterval;
+
+const timerDisplay = document.getElementById("timer");
+const startBtn = document.getElementById("startBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const resetBtn = document.getElementById("resetBtn");
+
+function updateTimer() {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    timerDisplay.innerHTML =
+        `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+}
+
+startBtn.addEventListener("click", () => {
+
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+
+        if (time > 0) {
+            time--;
+            updateTimer();
+        } else {
+            clearInterval(timerInterval);
+            alert("🎉 Study Session Complete!");
+        }
+
+    },1000);
+
+});
+
+pauseBtn.addEventListener("click", () => {
+    clearInterval(timerInterval);
+});
+
+resetBtn.addEventListener("click", () => {
+    clearInterval(timerInterval);
+    time = 25 * 60;
+    updateTimer();
+});
+
+updateTimer();
