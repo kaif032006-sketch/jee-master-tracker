@@ -1,130 +1,77 @@
-// ===== JEE Countdown =====
-const examDate = new Date("2027-01-20");
-const countdown = document.getElementById("countdown");
+// ==========================
+// JEE MASTER TRACKER
+// ==========================
 
-function updateCountdown() {
-    const today = new Date();
-    const diff = examDate - today;
-
-    if (diff <= 0) {
-        countdown.textContent = "🎉 Best of Luck!";
-        return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    countdown.textContent = days + " Days Left";
-}
-
-updateCountdown();
-
-
-// ===== Elements =====
 const taskInput = document.getElementById("taskInput");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
-const progressBar = document.getElementById("progressBar");
-const progressText = document.getElementById("progressText");
 
-
-// ===== Load Tasks =====
+// Load Tasks
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-
-// ===== Save Tasks =====
-function saveTasks(){
+function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-
-// ===== Progress =====
-function updateProgress(){
-
-    const total = tasks.length;
-
-    const completed = tasks.filter(task => task.done).length;
-
-    const percent = total === 0 ? 0 : Math.round((completed/total)*100);
-
-    progressBar.value = percent;
-
-    progressText.textContent = percent + "% Completed";
-}
-
-
-// ===== Render =====
-function renderTasks(){
-
+function renderTasks() {
     taskList.innerHTML = "";
 
-    tasks.forEach((task,index)=>{
+    tasks.forEach((task, index) => {
+        const div = document.createElement("div");
 
-        const div=document.createElement("div");
-
-        div.className="task";
-
-        div.innerHTML=`
-        <label>
-            <input type="checkbox" ${task.done ? "checked":""}>
-            ${task.text}
-        </label>
-
-        <button class="deleteBtn">❌</button>
+        div.innerHTML = `
+            <input type="checkbox">
+            ${task}
+            <button onclick="deleteTask(${index})">❌</button>
         `;
 
-        const checkbox=div.querySelector("input");
-
-        checkbox.addEventListener("change",()=>{
-
-            tasks[index].done=checkbox.checked;
-
-            saveTasks();
-
-            updateProgress();
-
-        });
-
-        div.querySelector(".deleteBtn").addEventListener("click",()=>{
-
-            tasks.splice(index,1);
-
-            saveTasks();
-
-            renderTasks();
-
-        });
-
         taskList.appendChild(div);
-
     });
-
-    updateProgress();
-
 }
 
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    saveTasks();
+    renderTasks();
+}
 
-// ===== Add Task =====
-addTaskBtn.addEventListener("click",()=>{
+addTaskBtn.addEventListener("click", () => {
+    const task = taskInput.value.trim();
 
-    const text=taskInput.value.trim();
+    if (task === "") return;
 
-    if(text==="") return;
-
-    tasks.push({
-
-        text:text,
-
-        done:false
-
-    });
-
-    taskInput.value="";
+    tasks.push(task);
 
     saveTasks();
-
     renderTasks();
 
+    taskInput.value = "";
 });
 
-
-// ===== Start =====
 renderTasks();
+
+
+// ==========================
+// JEE COUNTDOWN
+// ==========================
+
+const examDate = new Date("January 25, 2027 09:00:00").getTime();
+
+const timer = setInterval(() => {
+
+    const now = new Date().getTime();
+
+    const distance = examDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    document.getElementById("countdown").innerHTML =
+        days + " Days Left";
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML =
+        "Best of Luck!";
+    }
+
+}, 1000);
