@@ -76,21 +76,36 @@ const timer = setInterval(() => {
 
 }, 1000);
 // ==========================
-// AUTO PROGRESS BAR
+// AUTO PROGRESS + SAVE
 // ==========================
 
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const progressBar = document.getElementById("progressBar");
 const progressText = document.getElementById("progressText");
 
+// Load saved checkbox states
+const savedStates = JSON.parse(localStorage.getItem("checkboxStates")) || [];
+
+checkboxes.forEach((box, index) => {
+    if (savedStates[index] !== undefined) {
+        box.checked = savedStates[index];
+    }
+});
+
 function updateProgress() {
 
     const total = checkboxes.length;
     let completed = 0;
 
+    const states = [];
+
     checkboxes.forEach(box => {
+        states.push(box.checked);
+
         if (box.checked) completed++;
     });
+
+    localStorage.setItem("checkboxStates", JSON.stringify(states));
 
     const percent = Math.round((completed / total) * 100);
 
