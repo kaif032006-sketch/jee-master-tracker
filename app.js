@@ -52,4 +52,52 @@ function updateProgress() {
 
 updateProgress();
 ```
+// ===== Custom Tasks =====
 
+const taskInput = document.getElementById("taskInput");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskList = document.getElementById("taskList");
+
+let tasks = JSON.parse(localStorage.getItem("customTasks")) || [];
+
+function saveTasks() {
+    localStorage.setItem("customTasks", JSON.stringify(tasks));
+}
+
+function renderTasks() {
+    taskList.innerHTML = "";
+
+    tasks.forEach((task, index) => {
+        const div = document.createElement("div");
+        div.className = "task";
+
+        div.innerHTML = `
+            <span>${task}</span>
+            <button onclick="deleteTask(${index})">❌</button>
+        `;
+
+        taskList.appendChild(div);
+    });
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    saveTasks();
+    renderTasks();
+}
+
+addTaskBtn.addEventListener("click", () => {
+    const value = taskInput.value.trim();
+
+    if (value === "") return;
+
+    tasks.push(value);
+
+    saveTasks();
+
+    renderTasks();
+
+    taskInput.value = "";
+});
+
+renderTasks();
