@@ -76,4 +76,35 @@ padding:16px;
 }
 }
 ```
+#taskInput{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:none;
+margin-bottom:10px;
+font-size:16px;
+}
+
+#addTaskBtn{
+width:100%;
+padding:12px;
+background:#38bdf8;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+.task{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#334155;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+  }
 
