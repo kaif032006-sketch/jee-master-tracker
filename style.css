@@ -1,110 +1,97 @@
-```css
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-background:#0f172a;
-color:white;
-padding:20px;
+    background:#0f172a;
+    color:white;
+    padding:20px;
 }
 
 header{
-text-align:center;
-margin-bottom:25px;
+    text-align:center;
+    margin-bottom:20px;
 }
 
 header h1{
-font-size:30px;
-color:#38bdf8;
+    color:#38bdf8;
+    font-size:30px;
 }
 
 header p{
-color:#cbd5e1;
-margin-top:8px;
-}
-
-.dashboard{
-display:grid;
-gap:20px;
+    color:#cbd5e1;
+    margin-top:5px;
 }
 
 .box{
-background:#1e293b;
-padding:20px;
-border-radius:16px;
-box-shadow:0 4px 10px rgba(0,0,0,.25);
+    background:#1e293b;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
 .box h2{
-margin-bottom:15px;
-color:#38bdf8;
+    margin-bottom:15px;
+    color:#38bdf8;
 }
 
-label{
-display:block;
-margin:10px 0;
-font-size:18px;
+input[type=text]{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:10px;
+    font-size:16px;
 }
 
-input[type="checkbox"]{
-transform:scale(1.3);
-margin-right:10px;
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#38bdf8;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-bottom:15px;
 }
 
-progress{
-width:100%;
-height:18px;
-margin:12px 0;
-}
-
-#countdown{
-color:#22c55e;
-margin-top:10px;
-}
-
-@media(max-width:600px){
-header h1{
-font-size:24px;
-}
-
-.box{
-padding:16px;
-}
-}
-```
-#taskInput{
-width:100%;
-padding:12px;
-border-radius:10px;
-border:none;
-margin-bottom:10px;
-font-size:16px;
-}
-
-#addTaskBtn{
-width:100%;
-padding:12px;
-background:#38bdf8;
-color:white;
-border:none;
-border-radius:10px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-margin-bottom:15px;
+button:hover{
+    background:#0ea5e9;
 }
 
 .task{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#334155;
-padding:10px;
-margin-top:10px;
-border-radius:10px;
-  }
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#334155;
+    padding:12px;
+    border-radius:10px;
+    margin-top:10px;
+}
 
+.task button{
+    width:auto;
+    background:red;
+    padding:8px 12px;
+    margin:0;
+}
+
+label{
+    display:block;
+    margin-top:10px;
+}
+
+progress{
+    width:100%;
+    height:20px;
+}
+
+#countdown{
+    color:#22c55e;
+}
