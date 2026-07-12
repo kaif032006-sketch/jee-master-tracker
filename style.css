@@ -95,3 +95,23 @@ progress{
 #countdown{
     color:#22c55e;
 }
+nav{
+display:flex;
+justify-content:space-around;
+background:#111827;
+padding:12px;
+border-radius:12px;
+margin-bottom:20px;
+flex-wrap:wrap;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+padding:8px 12px;
+}
+
+nav a:hover{
+color:#38bdf8;
+    }
