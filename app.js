@@ -206,3 +206,25 @@ resetBtn.addEventListener("click", () => {
 });
 
 updateTimer();
+// ==========================
+// DAILY GOAL
+// ==========================
+
+const goalInput = document.getElementById("goalInput");
+const saveGoalBtn = document.getElementById("saveGoalBtn");
+const goalText = document.getElementById("goalText");
+
+goalText.innerHTML = localStorage.getItem("dailyGoal") || "No Goal Set";
+
+saveGoalBtn.addEventListener("click", () => {
+
+    const goal = goalInput.value.trim();
+
+    if(goal === "") return;
+
+    localStorage.setItem("dailyGoal", goal);
+
+    goalText.innerHTML = goal;
+
+    goalInput.value = "";
+});
