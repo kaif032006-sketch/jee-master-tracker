@@ -75,3 +75,31 @@ const timer = setInterval(() => {
     }
 
 }, 1000);
+// ==========================
+// AUTO PROGRESS BAR
+// ==========================
+
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
+
+function updateProgress() {
+
+    const total = checkboxes.length;
+    let completed = 0;
+
+    checkboxes.forEach(box => {
+        if (box.checked) completed++;
+    });
+
+    const percent = Math.round((completed / total) * 100);
+
+    progressBar.value = percent;
+    progressText.innerHTML = percent + "% Completed";
+}
+
+checkboxes.forEach(box => {
+    box.addEventListener("change", updateProgress);
+});
+
+updateProgress();
