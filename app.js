@@ -136,3 +136,24 @@ if (lastVisit !== today) {
 }
 
 streakElement.textContent = streak + " Days";
+// ==========================
+// DARK MODE
+// ==========================
+
+const themeBtn = document.getElementById("themeBtn");
+
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark-mode");
+}
+
+themeBtn.addEventListener("click",()=>{
+
+    document.body.classList.toggle("dark-mode");
+
+    if(document.body.classList.contains("dark-mode")){
+        localStorage.setItem("theme","dark");
+    }else{
+        localStorage.setItem("theme","light");
+    }
+
+});
