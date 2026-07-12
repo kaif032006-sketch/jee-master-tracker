@@ -1,4 +1,4 @@
-```javascript
+
 // ===== JEE Countdown =====
 const examDate = new Date("2027-01-20");
 const countdown = document.getElementById("countdown");
