@@ -118,3 +118,21 @@ checkboxes.forEach(box => {
 });
 
 updateProgress();
+// ==========================
+// STUDY STREAK
+// ==========================
+
+const streakElement = document.querySelector(".box:nth-of-type(3) h1");
+
+let streak = Number(localStorage.getItem("studyStreak")) || 0;
+let lastVisit = localStorage.getItem("lastVisit");
+
+const today = new Date().toDateString();
+
+if (lastVisit !== today) {
+    streak++;
+    localStorage.setItem("studyStreak", streak);
+    localStorage.setItem("lastVisit", today);
+}
+
+streakElement.textContent = streak + " Days";
