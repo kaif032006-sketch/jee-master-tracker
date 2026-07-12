@@ -228,3 +228,38 @@ saveGoalBtn.addEventListener("click", () => {
 
     goalInput.value = "";
 });
+// ==========================
+// NOTES SECTION
+// ==========================
+
+const notesArea = document.getElementById("notesArea");
+const saveNotes = document.getElementById("saveNotes");
+const clearNotes = document.getElementById("clearNotes");
+const savedMsg = document.getElementById("savedMsg");
+
+
+if(notesArea){
+
+notesArea.value = localStorage.getItem("jeeNotes") || "";
+
+
+saveNotes.addEventListener("click",()=>{
+
+localStorage.setItem("jeeNotes", notesArea.value);
+
+savedMsg.innerHTML="✅ Notes Saved";
+
+});
+
+
+clearNotes.addEventListener("click",()=>{
+
+notesArea.value="";
+
+localStorage.removeItem("jeeNotes");
+
+savedMsg.innerHTML="🗑️ Notes Cleared";
+
+});
+
+    }
