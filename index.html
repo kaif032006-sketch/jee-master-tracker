@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEE Master Tracker</title>
-
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JEE Master Tracker</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <h1>📚 JEE Master Tracker</h1>
-    <p>Daily • Weekly • Monthly Planner</p>
+<h1>📚 JEE Master Tracker</h1>
+<p>Daily • Weekly • Monthly Planner</p>
 </header>
 
-<section class="dashboard">
+<div class="box">
 
-    <div class="box">
-        <h2>📅 Today's Tasks</h2>
-        <input type="text" id="taskInput" placeholder="Enter new task">
+<h2>📅 Today's Tasks</h2>
 
-<button id="addTaskBtn">Add Task</button>
+<input type="text" id="taskInput" placeholder="Enter new task">
 
-<hr>
+<button id="addTaskBtn">➕ Add Task</button>
 
 <div id="taskList"></div>
 
-        <label><input type="checkbox"> Physics Revision</label><br><br>
+<hr>
 
-        <label><input type="checkbox"> Chemistry PYQs</label><br><br>
+<label><input type="checkbox"> Physics Revision</label><br><br>
 
-        <label><input type="checkbox"> Maths Practice</label>
+<label><input type="checkbox"> Chemistry PYQs</label><br><br>
 
-    </div>
+<label><input type="checkbox"> Maths Practice</label>
 
-    <div class="box">
-        <h2>📊 Overall Progress</h2>
+</div>
 
-        <progress value="0" max="100"></progress>
+<div class="box">
 
-        <p>0% Completed</p>
+<h2>📊 Overall Progress</h2>
 
-    </div>
+<progress id="progressBar" value="0" max="100"></progress>
 
-    <div class="box">
+<p id="progressText">0% Completed</p>
 
-        <h2>🔥 Study Streak</h2>
+</div>
 
-        <h1>0 Days</h1>
+<div class="box">
 
-    </div>
+<h2>🔥 Study Streak</h2>
 
-    <div class="box">
+<h1>0 Days</h1>
 
-        <h2>⏳ JEE Countdown</h2>
+</div>
 
-        <h1 id="countdown">Loading...</h1>
+<div class="box">
 
-    </div>
+<h2>⏳ JEE Countdown</h2>
 
-</section>
+<h1 id="countdown">Loading...</h1>
+
+</div>
 
 <script src="app.js"></script>
 
 </body>
-</html>
-
+                         </html>
