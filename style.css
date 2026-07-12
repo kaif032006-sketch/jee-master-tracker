@@ -115,3 +115,25 @@ padding:8px 12px;
 nav a:hover{
 color:#38bdf8;
     }
+/* =======================
+   DARK MODE
+======================= */
+
+.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+.dark-mode .box{
+    background:#1e1e1e;
+    color:white;
+}
+
+.dark-mode button{
+    background:#333;
+    color:white;
+}
+
+#themeBtn{
+    margin-top:10px;
+}
